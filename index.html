@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rebeca Martins - Nail Designer Premium</title>
+    <title>Rebeca Martins - Nail Designer Premium em Osasco</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -39,20 +39,26 @@
         ::-webkit-scrollbar-track { background: var(--pearl); }
         ::-webkit-scrollbar-thumb { background: var(--rose-gold); border-radius: 4px; }
 
-        /* Efeitos do Carrossel 3D - Galeria */
-        .carousel-item {
+        /* Estilos Base para Carrosseis 3D */
+        .carousel-item-3d {
             transition: all 0.6s cubic-bezier(0.32, 0.72, 0, 1);
             position: absolute;
-            width: 260px;
-            aspect-ratio: 3/4;
             border-radius: 1.5rem;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
             cursor: pointer;
+            background: white;
         }
+
+        /* Tamanhos específicos para cada Carrossel */
+        .service-card { width: 280px; height: 400px; }
+        .review-card { width: 300px; height: 350px; }
+        .gallery-card { width: 260px; aspect-ratio: 3/4; }
         
         @media (min-width: 768px) {
-            .carousel-item { width: 380px; }
+            .service-card { width: 320px; height: 450px; }
+            .review-card { width: 400px; height: 300px; }
+            .gallery-card { width: 380px; }
         }
 
         .carousel-overlay {
@@ -62,35 +68,7 @@
             transition: opacity 0.5s;
         }
 
-        /* Efeitos do Carrossel 3D - Serviços */
-        .service-carousel-item {
-            transition: all 0.6s cubic-bezier(0.32, 0.72, 0, 1);
-            position: absolute;
-            width: 300px;
-            height: 520px;
-            border-radius: 1.5rem;
-            background-color: white;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            cursor: pointer;
-            border: 1px solid #F4E4E2;
-        }
-        
-        @media (min-width: 768px) {
-            .service-carousel-item { width: 420px; height: 580px; }
-        }
-
-        .service-overlay {
-            position: absolute;
-            inset: 0;
-            background: black;
-            transition: opacity 0.5s;
-            pointer-events: none;
-            border-radius: 1.5rem;
-            z-index: 20;
-        }
-
-        /* Animações de Scroll (Fade In Up) */
+        /* Efeito Fade In para Scroll */
         .fade-in-up {
             opacity: 0;
             transform: translateY(30px);
@@ -105,17 +83,18 @@
 <body class="antialiased">
 
     <!-- Navbar -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 bg-transparent py-6">
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 bg-transparent py-4">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="fade-in-up flex items-center">
-                <!-- LOGO DO TOPO -->
-                <img src="imagens/logo-topo.png" alt="Logo Rebeca Martins" class="h-20 md:h-24 w-auto object-contain" onerror="this.style.display='none'">
+            <a href="#" class="fade-in-up flex items-center h-24">
+                <img src="imagens/logo-topo.png" alt="Logo Rebeca Martins" class="h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;" class="font-serif text-3xl font-bold tracking-wider text-[#D7A9A3] drop-shadow-md">R<span class="text-white">M</span></span>
             </a>
             <div class="hidden md:flex gap-8 items-center fade-in-up" style="transition-delay: 0.1s;">
-                <a href="#servicos" class="text-sm font-bold text-white hover:text-[#D7A9A3] transition-colors drop-shadow-md">Serviços</a>
-                <a href="#galeria" class="text-sm font-bold text-white hover:text-[#D7A9A3] transition-colors drop-shadow-md">Galeria</a>
-                <a href="#quem-somos" class="text-sm font-bold text-white hover:text-[#D7A9A3] transition-colors drop-shadow-md">Quem Somos</a>
-                <a href="https://wa.me/5511939346943?text=Ol%C3%A1%20Rebeca!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" class="bg-[#D7A9A3] text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-[#c4948e] shadow-lg hover:-translate-y-1 transition-all">
+                <a href="#servicos" class="text-sm font-bold text-white drop-shadow-md hover:text-[#D7A9A3] transition-colors">Serviços</a>
+                <a href="#avaliacoes" class="text-sm font-bold text-white drop-shadow-md hover:text-[#D7A9A3] transition-colors">Avaliações</a>
+                <a href="#galeria" class="text-sm font-bold text-white drop-shadow-md hover:text-[#D7A9A3] transition-colors">Galeria</a>
+                <a href="#quem-somos" class="text-sm font-bold text-white drop-shadow-md hover:text-[#D7A9A3] transition-colors">Quem Somos</a>
+                <a href="https://wa.me/5511939346943?text=Ol%C3%A1%20Rebeca!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" class="bg-[#D7A9A3] text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-[#c4948e] shadow-lg hover:-translate-y-1 transition-all">
                     Agendar Horário
                 </a>
             </div>
@@ -123,50 +102,42 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-[#FCFAFA]">
+    <section class="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-[#2A2A2A]">
         
         <!-- CONTAINER DO VÍDEO DE FUNDO -->
-        <div class="absolute inset-0 z-0 overflow-hidden bg-gray-200">
-            <!-- Película bem clara para o vídeo brilhar -->
-            <div class="absolute inset-0 bg-black/10 z-10"></div> 
+        <div class="absolute inset-0 z-0 overflow-hidden bg-black">
+            <!-- Película para garantir leitura do texto -->
+            <div class="absolute inset-0 bg-black/30 z-10"></div> 
             
-            <!-- VÍDEO DESKTOP (Aparece no PC, some no Celular) -->
-            <video autoplay loop muted playsinline class="hidden md:block absolute top-0 left-0 w-full h-full object-cover z-0">
+            <!-- VÍDEO DESKTOP (PC) -->
+            <video autoplay loop muted playsinline class="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover z-0">
                 <source src="videios/video-fundo.mp4" type="video/mp4">
-                Seu navegador não suporta vídeos.
             </video>
 
-            <!-- VÍDEO CELULAR (Aparece no Celular, some no PC) -->
-            <video autoplay loop muted playsinline class="block md:hidden absolute top-0 left-0 w-full h-full object-cover z-0">
+            <!-- VÍDEO CELULAR (Mobile) -->
+            <video autoplay loop muted playsinline class="block md:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover z-0">
                 <source src="videios/video-fundo-celular.mp4" type="video/mp4">
-                Seu navegador não suporta vídeos.
             </video>
         </div>
 
-        <!-- TEXTOS FLUTUANTES -->
-        <div class="relative z-20 max-w-7xl mx-auto px-6 text-center mt-36 md:mt-24 fade-in-up">
-            <div class="max-w-4xl mx-auto">
-                <img src="imagens/WhatsApp Image 2026-06-03 at 19.09.45.jpeg" alt="Logo Rebeca Martins" class="w-48 md:w-64 mx-auto mb-8 rounded-lg shadow-sm object-contain drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)]" onerror="this.style.display='none'">
-                
-                <!-- H1 Branco com Destaque Rose Gold -->
-                <h1 class="font-serif text-5xl md:text-7xl text-white font-black leading-tight mb-6 drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)]">
-                    Alongamento em Gel em Osasco <br/>
-                    <span class="italic text-[#D7A9A3] text-4xl md:text-6xl drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)]">Rebeca Martins Nail Designer</span>
-                </h1>
-                
-                <!-- H2 Branco e Negrito -->
-                <h2 class="text-white font-bold mb-12 text-xl md:text-2xl max-w-3xl mx-auto drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)] leading-relaxed">
-                    Atendimento especializado em unhas em gel, nail art e esmaltação no bairro Ayrosa – Osasco/SP.
-                </h2>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://wa.me/5511939346943?text=Ol%C3%A1%20Rebeca!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20fazer%20minhas%20unhas." target="_blank" class="bg-black text-white px-8 py-4 rounded-full font-bold hover:bg-gray-800 shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg border border-white/20">
-                        Agendar Horário <i class="fa-brands fa-whatsapp text-xl"></i>
-                    </a>
-                    <a href="#servicos" class="bg-white/90 backdrop-blur-md border border-white/50 text-black px-8 py-4 rounded-full font-bold hover:bg-white transition-all flex items-center justify-center shadow-lg text-lg">
-                        Conhecer Procedimentos
-                    </a>
-                </div>
+        <!-- TEXTOS FLUTUANTES (Branco e Rose Gold com Sombra) -->
+        <div class="relative z-20 max-w-5xl mx-auto px-6 text-center mt-32 md:mt-24 fade-in-up">
+            <h1 class="font-serif text-5xl md:text-7xl font-bold text-white mb-4" style="text-shadow: 2px 4px 8px rgba(0,0,0,0.8);">
+                Alongamento em Gel em Osasco<br>
+                <span class="text-[#D7A9A3] italic">Rebeca Martins</span> Nail Designer
+            </h1>
+            
+            <h2 class="font-sans text-xl md:text-2xl font-bold text-white mb-10 max-w-3xl mx-auto leading-relaxed" style="text-shadow: 1px 2px 6px rgba(0,0,0,0.8);">
+                Atendimento especializado em unhas em gel, nail art e esmaltação no bairro Ayrosa – Osasco/SP.
+            </h2>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/5511939346943?text=Ol%C3%A1%20Rebeca!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20fazer%20minhas%20unhas." target="_blank" class="bg-white text-[#2A2A2A] px-8 py-4 rounded-full font-bold hover:bg-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg">
+                    Agendar Horário <i class="fa-brands fa-whatsapp text-xl text-[#25D366]"></i>
+                </a>
+                <a href="#servicos" class="bg-black/40 backdrop-blur-md border border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-[#2A2A2A] shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all flex items-center justify-center text-lg">
+                    Conhecer Procedimentos
+                </a>
             </div>
         </div>
     </section>
@@ -178,8 +149,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div class="relative fade-in-up">
                     <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative">
-                        <img src="imagens/foto-sobre.jpg" alt="Rebeca Martins" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x1000/F4E4E2/2A2A2A?text=Sua+Foto+Aqui'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <img src="imagens/foto-sobre.jpg" alt="Rebeca Martins" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                     </div>
                     <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-xl border border-[#F4E4E2]">
                         <div class="flex items-center gap-4">
@@ -188,18 +159,18 @@
                             </div>
                             <div>
                                 <p class="font-serif font-bold text-2xl text-[#2A2A2A]">5+ Anos</p>
-                                <p class="text-sm text-gray-500 uppercase tracking-wider">de Excelência</p>
+                                <p class="text-sm text-gray-500 uppercase tracking-wider font-bold">de Excelência</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="fade-in-up" style="transition-delay: 0.2s;">
-                    <span class="uppercase tracking-[0.2em] text-[#D7A9A3] text-sm font-bold mb-4 block">Especialista em Saúde da Lâmina</span>
-                    <h2 class="font-serif text-4xl md:text-5xl text-[#2A2A2A] mb-6 leading-tight">Elevando o padrão do <br/><span class="italic text-[#D7A9A3]">Nail Design.</span></h2>
-                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">Sou Rebeca Martins, especialista em alongamento de unhas com foco absoluto em naturalidade e preservação da saúde da lâmina. Acredito que suas mãos são seu cartão de visita e merecem um tratamento de luxo.</p>
+                    <span class="uppercase tracking-[0.2em] text-[#D7A9A3] text-sm font-bold mb-4 block">Nossa Essência</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-[#2A2A2A] mb-6 leading-tight">Muito mais que unhas, <br/><span class="italic text-[#D7A9A3]">uma obra de arte.</span></h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">Sou Rebeca Martins, especialista em unhas com foco em naturalidade e saúde da lâmina. Acredito que suas mãos são seu cartão de visita e merecem um tratamento à altura no nosso estúdio em Osasco.</p>
                     <div class="flex gap-6 mt-8">
-                        <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-[#D7A9A3] text-xl"></i><span class="font-bold">Materiais Premium</span></div>
-                        <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-[#D7A9A3] text-xl"></i><span class="font-bold">Ambiente Exclusivo</span></div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-[#D7A9A3] text-xl"></i><span class="font-bold text-[#2A2A2A]">Produtos Premium</span></div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-[#D7A9A3] text-xl"></i><span class="font-bold text-[#2A2A2A]">Atendimento VIP</span></div>
                     </div>
                 </div>
             </div>
@@ -215,16 +186,46 @@
                 <div class="h-[1px] w-24 mx-auto mt-6 bg-[#D7A9A3]/50"></div>
             </div>
             
-            <div class="relative h-[550px] md:h-[650px] w-full max-w-7xl mx-auto flex items-center justify-center mt-10" id="services-carousel-container">
+            <div class="relative h-[450px] md:h-[500px] w-full flex items-center justify-center mt-10" id="services-carousel-container">
                 <!-- Injetado via JS -->
             </div>
 
-            <div class="flex flex-col items-center mt-12 gap-6 relative z-30">
+            <div class="flex flex-col items-center mt-12 gap-6">
                 <div class="flex items-center gap-8">
-                    <button onclick="prevService()" class="w-12 h-12 flex items-center justify-center rounded-full border border-[#2A2A2A]/20 text-[#2A2A2A] hover:bg-[#D7A9A3] hover:text-white hover:border-[#D7A9A3] transition-all"><i class="fa-solid fa-chevron-left"></i></button>
-                    <div class="flex gap-2 flex-wrap justify-center max-w-[200px] md:max-w-md" id="services-carousel-dots"></div>
-                    <button onclick="nextService()" class="w-12 h-12 flex items-center justify-center rounded-full border border-[#2A2A2A]/20 text-[#2A2A2A] hover:bg-[#D7A9A3] hover:text-white hover:border-[#D7A9A3] transition-all"><i class="fa-solid fa-chevron-right"></i></button>
+                    <button onclick="sPrev()" class="w-12 h-12 flex items-center justify-center rounded-full border border-[#2A2A2A]/20 text-[#2A2A2A] hover:bg-[#D7A9A3] hover:text-white hover:border-[#D7A9A3] transition-all"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="flex gap-2 flex-wrap justify-center max-w-[200px]" id="services-dots"></div>
+                    <button onclick="sNext()" class="w-12 h-12 flex items-center justify-center rounded-full border border-[#2A2A2A]/20 text-[#2A2A2A] hover:bg-[#D7A9A3] hover:text-white hover:border-[#D7A9A3] transition-all"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avaliações do Google (Carrossel 3D) -->
+    <section id="avaliacoes" class="py-24 bg-white overflow-hidden relative">
+        <div class="absolute top-20 left-0 w-[400px] h-[400px] bg-[#F4E4E2] rounded-full blur-[80px] opacity-40"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="uppercase tracking-[0.2em] text-sm font-bold mb-4 block text-[#D7A9A3]">O que dizem sobre nós</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-[#2A2A2A]">Avaliações do Google</h2>
+                <div class="h-[1px] w-24 mx-auto mt-6 bg-[#D7A9A3]/50"></div>
+            </div>
+            
+            <div class="relative h-[400px] w-full flex items-center justify-center mt-10" id="reviews-carousel-container">
+                <!-- Injetado via JS -->
+            </div>
+
+            <div class="flex flex-col items-center mt-12 gap-6">
+                <div class="flex items-center gap-8">
+                    <button onclick="rPrev()" class="w-12 h-12 flex items-center justify-center rounded-full border border-[#2A2A2A]/20 text-[#2A2A2A] hover:bg-[#D7A9A3] hover:text-white hover:border-[#D7A9A3] transition-all"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="flex gap-2" id="reviews-dots"></div>
+                    <button onclick="rNext()" class="w-12 h-12 flex items-center justify-center rounded-full border border-[#2A2A2A]/20 text-[#2A2A2A] hover:bg-[#D7A9A3] hover:text-white hover:border-[#D7A9A3] transition-all"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                
+                <!-- Botão Oficial Google -->
+                <a href="https://www.google.com/search?q=Rebeca+Martins+Nail+Designer&rlz=1C1GCEA_pt-BRBR1203BR1203&oq=re&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIKCAEQLhixAxiABDIGCAIQRRg5MgYIAxBFGDsyBggEEEUYOzIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPNIBCDEyMjBqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8" target="_blank" class="mt-4 bg-white border-2 border-[#4285F4] text-[#4285F4] px-8 py-3 rounded-full font-bold hover:bg-[#4285F4] hover:text-white transition-all flex items-center justify-center gap-3 shadow-md">
+                    <i class="fa-brands fa-google text-xl"></i> Ver todas as avaliações no Google
+                </a>
             </div>
         </div>
     </section>
@@ -237,114 +238,162 @@
             <div class="h-[1px] w-24 mx-auto mt-6 bg-[#F4E4E2]/30"></div>
         </div>
         
-        <div class="relative h-[450px] md:h-[600px] w-full max-w-7xl mx-auto flex items-center justify-center mt-10" id="carousel-container">
-            <div class="carousel-item"><img src="imagens/obra-1.jpg" class="w-full h-full object-cover"><div class="carousel-overlay"></div></div>
-            <div class="carousel-item"><img src="imagens/obra-2.jpg" class="w-full h-full object-cover"><div class="carousel-overlay"></div></div>
-            <div class="carousel-item"><img src="imagens/obra-3.jpg" class="w-full h-full object-cover"><div class="carousel-overlay"></div></div>
-            <div class="carousel-item"><img src="imagens/obra-4.jpg" class="w-full h-full object-cover"><div class="carousel-overlay"></div></div>
-            <div class="carousel-item"><img src="imagens/obra-5.jpg" class="w-full h-full object-cover"><div class="carousel-overlay"></div></div>
-            <div class="carousel-item"><img src="imagens/obra-6.jpg" class="w-full h-full object-cover"><div class="carousel-overlay"></div></div>
-            <div class="carousel-item"><img src="imagens/obra-7.jpg" class="w-full h-full object-cover"><div class="carousel-overlay"></div></div>
-            <div class="carousel-item"><img src="imagens/obra-8.jpg" class="w-full h-full object-cover"><div class="carousel-overlay"></div></div>
-            <div class="carousel-item"><img src="imagens/obra-9.jpg" class="w-full h-full object-cover"><div class="carousel-overlay"></div></div>
-            <div class="carousel-item"><img src="imagens/obra-10.jpg" class="w-full h-full object-cover"><div class="carousel-overlay"></div></div>
+        <div class="relative h-[450px] md:h-[600px] w-full flex items-center justify-center mt-10" id="gallery-carousel-container">
+            <!-- As 10 Obras -->
+            <div class="carousel-item-3d gallery-card"><img src="imagens/obra-1.jpg" class="w-full h-full object-cover" onerror="this.style.display='none'"><div class="carousel-overlay bg-black"></div></div>
+            <div class="carousel-item-3d gallery-card"><img src="imagens/obra-2.jpg" class="w-full h-full object-cover" onerror="this.style.display='none'"><div class="carousel-overlay bg-black"></div></div>
+            <div class="carousel-item-3d gallery-card"><img src="imagens/obra-3.jpg" class="w-full h-full object-cover" onerror="this.style.display='none'"><div class="carousel-overlay bg-black"></div></div>
+            <div class="carousel-item-3d gallery-card"><img src="imagens/obra-4.jpg" class="w-full h-full object-cover" onerror="this.style.display='none'"><div class="carousel-overlay bg-black"></div></div>
+            <div class="carousel-item-3d gallery-card"><img src="imagens/obra-5.jpg" class="w-full h-full object-cover" onerror="this.style.display='none'"><div class="carousel-overlay bg-black"></div></div>
+            <div class="carousel-item-3d gallery-card"><img src="imagens/obra-6.jpg" class="w-full h-full object-cover" onerror="this.style.display='none'"><div class="carousel-overlay bg-black"></div></div>
+            <div class="carousel-item-3d gallery-card"><img src="imagens/obra-7.jpg" class="w-full h-full object-cover" onerror="this.style.display='none'"><div class="carousel-overlay bg-black"></div></div>
+            <div class="carousel-item-3d gallery-card"><img src="imagens/obra-8.jpg" class="w-full h-full object-cover" onerror="this.style.display='none'"><div class="carousel-overlay bg-black"></div></div>
+            <div class="carousel-item-3d gallery-card"><img src="imagens/obra-9.jpg" class="w-full h-full object-cover" onerror="this.style.display='none'"><div class="carousel-overlay bg-black"></div></div>
+            <div class="carousel-item-3d gallery-card"><img src="imagens/obra-10.jpg" class="w-full h-full object-cover" onerror="this.style.display='none'"><div class="carousel-overlay bg-black"></div></div>
         </div>
 
         <div class="flex flex-col items-center mt-12 gap-6">
             <div class="flex items-center gap-8">
-                <button onclick="prevImage()" class="w-12 h-12 flex items-center justify-center rounded-full border border-white/20 hover:bg-[#D7A9A3] transition-all"><i class="fa-solid fa-chevron-left"></i></button>
-                <div class="flex gap-2" id="carousel-dots"></div>
-                <button onclick="nextImage()" class="w-12 h-12 flex items-center justify-center rounded-full border border-white/20 hover:bg-[#D7A9A3] transition-all"><i class="fa-solid fa-chevron-right"></i></button>
+                <button onclick="gPrev()" class="w-12 h-12 flex items-center justify-center rounded-full border border-white/20 hover:bg-[#D7A9A3] hover:border-[#D7A9A3] transition-all"><i class="fa-solid fa-chevron-left"></i></button>
+                <div class="flex gap-2" id="gallery-dots"></div>
+                <button onclick="gNext()" class="w-12 h-12 flex items-center justify-center rounded-full border border-white/20 hover:bg-[#D7A9A3] hover:border-[#D7A9A3] transition-all"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#1A1A1A] pt-20 pb-8 text-white border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                <!-- Marca -->
-                <div class="flex flex-col items-center md:items-start text-center md:text-left">
-                    <img src="imagens/logo-topo.png" alt="Logo" class="h-24 object-contain mb-4" onerror="this.style.display='none'">
-                    <p class="text-gray-400 mb-6 max-w-sm">Elevando o padrão do nail design com técnicas avançadas e um ambiente pensado exclusivamente para o seu bem-estar.</p>
-                    <div class="flex gap-4">
-                        <a href="https://wa.me/5511939346943" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#D7A9A3] transition-all"><i class="fa-brands fa-whatsapp"></i></a>
-                    </div>
-                </div>
-
-                <!-- Contato -->
-                <div class="flex flex-col items-center md:items-start text-center md:text-left">
-                    <h3 class="font-serif text-xl text-white mb-6">Contato & Localização</h3>
-                    <ul class="space-y-4 text-gray-400">
-                        <li class="flex items-start gap-3 justify-center md:justify-start">
-                            <i class="fa-solid fa-location-dot text-[#D7A9A3] mt-1"></i>
-                            <span>R. Arara, 112 - Ayrosa<br>Osasco - SP, 06280-120</span>
-                        </li>
-                        <li class="flex items-center gap-3 justify-center md:justify-start">
-                            <i class="fa-solid fa-phone text-[#D7A9A3]"></i>
-                            <span>(11) 93934-6943</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Mapa -->
-                <div class="w-full h-48 rounded-xl overflow-hidden shadow-lg border border-white/10">
-                    <iframe 
-                        src="https://maps.google.com/maps?q=R.+Arara,+112+-+Ayrosa,+Osasco+-+SP,+06280-120&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+    <footer class="bg-[#1A1A1A] pt-20 pb-8 text-white border-t border-white/5 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-[1px] bg-gradient-to-r from-transparent via-[#D7A9A3] to-transparent opacity-30"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+            <!-- Marca -->
+            <div>
+                <h2 class="font-serif text-4xl font-bold mb-6 tracking-wider">R<span class="text-[#D7A9A3]">M</span></h2>
+                <p class="text-gray-400 mb-6 leading-relaxed font-sans">
+                    Elevando o padrão do nail design com técnicas avançadas e um ambiente pensado exclusivamente para o seu bem-estar.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#D7A9A3] transition-all text-xl"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
-            <p class="text-sm text-gray-500 border-t border-white/10 pt-8 text-center">© 2026 Rebeca Martins Nail Designer. Todos os direitos reservados.</p>
+
+            <!-- Contatos -->
+            <div>
+                <h4 class="font-sans font-bold text-xl mb-6 text-white">Contato & Localização</h4>
+                <ul class="space-y-4 text-gray-400">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-map-location-dot text-[#D7A9A3] text-xl mt-1"></i>
+                        <span>R. Arara, 112 - Ayrosa<br>Osasco - SP, 06280-120</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-phone text-[#D7A9A3] text-xl"></i>
+                        <span>(11) 93934-6943</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-clock text-[#D7A9A3] text-xl"></i>
+                        <span>Atendimento com horário marcado</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Mapa -->
+            <div class="w-full h-48 rounded-2xl overflow-hidden shadow-lg border border-white/10">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.070994195155!2d-46.77209702381282!3d-23.52994796043135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cefff3de6bfdb3%3A0xc665181c01e694fb!2sR.%20Arara%2C%20112%20-%20Ayrosa%2C%20Osasco%20-%20SP%2C%2006280-120!5e0!3m2!1spt-BR!2sbr!4v1717770000000!5m2!1spt-BR!2sbr" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 border-t border-white/10 pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-sm text-gray-500 font-medium">© 2026 Rebeca Martins Nail Designer. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5511939346943?text=Ol%C3%A1%20Rebeca!%20Estava%20olhando%20o%20seu%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%AAvida/agendar%20um%20hor%C3%A1rio." target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-14 h-14 rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.4)] flex items-center justify-center text-3xl hover:scale-110 transition-transform">
+    <a href="https://wa.me/5511939346943?text=Ol%C3%A1%20Rebeca!%20Estava%20olhando%20o%20seu%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida/agendar%20um%20hor%C3%A1rio." target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-14 h-14 rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.5)] flex items-center justify-center text-3xl hover:scale-110 hover:-translate-y-2 transition-all">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <script>
-        // Lógica do Menu Transparente
+        // Navbar Scroll Effect (Cor do menu muda ao rolar)
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            const links = nav.querySelectorAll('a.text-white, a.text-black');
-            
+            const links = nav.querySelectorAll('a:not(.bg-\\[\\#D7A9A3\\])');
+            const logo = nav.querySelector('span.font-serif');
             if (window.scrollY > 50) {
-                nav.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
-                nav.classList.remove('bg-transparent', 'py-6');
-                nav.classList.add('py-3');
-                
-                // Muda cor dos links para preto
-                links.forEach(link => {
-                    if(!link.classList.contains('bg-[#D7A9A3]')) {
-                        link.classList.remove('text-white');
-                        link.classList.add('text-black');
-                    }
-                });
+                nav.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                nav.classList.remove('bg-transparent', 'py-4');
+                nav.classList.add('py-2');
+                links.forEach(l => { l.classList.remove('text-white', 'drop-shadow-md'); l.classList.add('text-[#2A2A2A]'); });
+                if(logo) logo.classList.remove('text-white');
             } else {
-                nav.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-3');
-                nav.classList.add('bg-transparent', 'py-6');
-                
-                // Muda cor dos links para branco
-                links.forEach(link => {
-                    if(!link.classList.contains('bg-[#D7A9A3]')) {
-                        link.classList.remove('text-black');
-                        link.classList.add('text-white');
-                    }
-                });
+                nav.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md', 'py-2');
+                nav.classList.add('bg-transparent', 'py-4');
+                links.forEach(l => { l.classList.remove('text-[#2A2A2A]'); l.classList.add('text-white', 'drop-shadow-md'); });
+                if(logo) logo.classList.add('text-white');
             }
         });
 
+        // Função Genérica para Lógica de Loop Infinito 3D
+        function update3DCarousel(items, activeIndex, dotsContainer, type) {
+            const total = items.length;
+            const half = Math.floor(total / 2);
+            
+            items.forEach((item, index) => {
+                let offset = index - activeIndex;
+                
+                // Lógica de loop infinito perfeito
+                if (offset > half) offset -= total;
+                if (offset < -half) offset += total;
+                
+                let absOffset = Math.abs(offset);
+                let sign = Math.sign(offset);
+
+                // Configurações de Espaçamento e Escala
+                const x = sign * absOffset * 65; 
+                const scale = 1 - absOffset * 0.15; 
+                
+                // Opacidade e Visibilidade
+                let opacity = 0;
+                if(absOffset === 0) opacity = 1;
+                else if(absOffset === 1) opacity = 0.6;
+                else if(absOffset === 2) opacity = 0.2;
+                
+                const zIndex = 10 - absOffset;
+
+                item.style.transform = `translateX(${x}%) scale(${scale})`;
+                item.style.zIndex = zIndex;
+                item.style.opacity = opacity;
+                item.style.pointerEvents = opacity === 0 ? 'none' : 'auto';
+
+                // Escurecer itens do fundo
+                const overlay = item.querySelector('.carousel-overlay');
+                if(overlay) {
+                    overlay.style.opacity = absOffset === 0 ? '0' : '0.5';
+                }
+            });
+
+            // Atualiza os pontinhos (dots)
+            if(dotsContainer) {
+                const dots = dotsContainer.children;
+                for(let i=0; i<dots.length; i++) {
+                    const activeColor = type === 'gallery' ? 'bg-[#D7A9A3]' : 'bg-[#D7A9A3]';
+                    const inactiveColor = type === 'gallery' ? 'bg-white/30' : 'bg-[#2A2A2A]/20';
+                    dots[i].className = `h-2 rounded-full transition-all duration-500 ${activeIndex === i ? `w-8 ${activeColor}` : `w-2 ${inactiveColor}`}`;
+                }
+            }
+        }
+
         // ==========================================
-        // CARROSSEL DE SERVIÇOS (14 Itens)
+        // 1. CARROSSEL DE SERVIÇOS (14 Itens)
         // ==========================================
-        const services = [
+        const servicesData = [
             { title: "Alongamento em Gel", desc: "Extensão com máxima naturalidade e resistência." },
             { title: "Manutenção de Gel", desc: "Preenchimento e renovação estrutural impecável." },
             { title: "Gel com Nail Art", desc: "Aplicação de gel com decorações personalizadas." },
@@ -361,133 +410,129 @@
             { title: "Manicure em Spa", desc: "Relaxamento, esfoliação e hidratação profunda." }
         ];
 
-        const servicesContainer = document.getElementById('services-carousel-container');
-        const servicesDotsContainer = document.getElementById('services-carousel-dots');
-        
-        services.forEach((service, index) => {
-            const fallbackImg = `https://placehold.co/600x400/D7A9A3/ffffff?text=Serviço+${index+1}`;
-            servicesContainer.innerHTML += `
-                <div class="service-carousel-item group">
-                    <div class="h-[45%] md:h-[50%] w-full relative overflow-hidden">
-                        <img src="imagens/servico-${index + 1}.jpg" onerror="this.src='${fallbackImg}'" alt="${service.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        const sContainer = document.getElementById('services-carousel-container');
+        const sDotsContainer = document.getElementById('services-dots');
+        let sIndex = 0;
+        let sInterval;
+
+        servicesData.forEach((srv, i) => {
+            const encodedTitle = encodeURIComponent(srv.title);
+            const wppLink = `https://wa.me/5511939346943?text=Ol%C3%A1%20Rebeca!%20Gostaria%20de%20saber%20mais%20e%20agendar%20o%20servi%C3%A7o%20de%20${encodedTitle}.`;
+            
+            const item = document.createElement('div');
+            item.className = 'carousel-item-3d service-card flex flex-col justify-between';
+            item.innerHTML = `
+                <div class="h-1/2 w-full bg-gray-100 relative">
+                    <img src="imagens/servico-${i+1}.jpg" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                    <div class="absolute inset-0 flex items-center justify-center text-gray-400 font-bold" style="z-index:-1">Serviço ${i+1}</div>
+                    <div class="carousel-overlay bg-black/50"></div>
+                </div>
+                <div class="p-6 h-1/2 flex flex-col justify-between bg-white">
+                    <div>
+                        <h3 class="font-serif text-2xl font-bold text-[#2A2A2A] mb-2">${srv.title}</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">${srv.desc}</p>
                     </div>
-                    <div class="p-6 md:p-8 h-[55%] md:h-[50%] flex flex-col items-center justify-center text-center relative bg-white">
-                        <h3 class="font-serif text-xl md:text-2xl text-[#2A2A2A] mb-3 font-bold">${service.title}</h3>
-                        <p class="text-gray-500 leading-relaxed text-sm md:text-base px-2">${service.desc}</p>
-                        <a href="https://wa.me/5511939346943?text=Ol%C3%A1%20Rebeca!%20Gostaria%20de%20saber%20mais%20e%20agendar%20o%20servi%C3%A7o%20de%20${encodeURIComponent(service.title)}." target="_blank" class="mt-6 inline-block text-sm font-bold text-[#D7A9A3] uppercase tracking-wider hover:text-[#2A2A2A] transition-colors">
-                            AGENDAR <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
-                        </a>
-                    </div>
-                    <div class="service-overlay"></div>
+                    <a href="${wppLink}" target="_blank" class="text-[#D7A9A3] font-bold text-sm hover:text-[#2A2A2A] transition-colors flex items-center gap-1 uppercase tracking-widest mt-4">
+                        Agendar <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             `;
+            sContainer.appendChild(item);
+
+            const dot = document.createElement('button');
+            dot.onclick = () => { sIndex = i; updateS(); resetS(); };
+            sDotsContainer.appendChild(dot);
             
-            const dot = document.createElement('button');
-            dot.className = `h-2 rounded-full transition-all duration-500 m-1 w-2 bg-[#D7A9A3]/30`;
-            dot.onclick = () => { activeServiceIndex = index; updateServicesCarousel(); resetServicesAutoplay(); };
-            servicesDotsContainer.appendChild(dot);
+            item.addEventListener('click', () => { if(sIndex !== i) { sIndex = i; updateS(); resetS(); } });
         });
 
-        let activeServiceIndex = 1;
-        let serviceAutoplayInterval;
-        const serviceItems = document.querySelectorAll('.service-carousel-item');
+        const sItems = sContainer.querySelectorAll('.carousel-item-3d');
+        const updateS = () => update3DCarousel(sItems, sIndex, sDotsContainer, 'service');
+        const sNext = () => { sIndex = (sIndex + 1) % sItems.length; updateS(); resetS(); };
+        const sPrev = () => { sIndex = (sIndex - 1 + sItems.length) % sItems.length; updateS(); resetS(); };
+        const resetS = () => { clearInterval(sInterval); sInterval = setInterval(sNext, 4000); };
+        updateS(); resetS();
 
-        function updateServicesCarousel() {
-            const total = serviceItems.length;
-            serviceItems.forEach((item, index) => {
-                let offset = index - activeServiceIndex;
-                if (offset < -Math.floor(total / 2)) offset += total;
-                if (offset > Math.floor(total / 2)) offset -= total;
-
-                const absOffset = Math.abs(offset);
-                const x = offset * 55; 
-                const scale = 1 - absOffset * 0.15; 
-                let opacity = 0;
-                if(absOffset === 0) opacity = 1; 
-                else if(absOffset === 1) opacity = 0.8; 
-                else if(absOffset === 2) opacity = 0.3; 
-                
-                const zIndex = 20 - absOffset;
-
-                item.style.transform = `translateX(${x}%) scale(${scale})`;
-                item.style.zIndex = zIndex;
-                item.style.opacity = opacity;
-                item.style.pointerEvents = absOffset === 0 ? 'auto' : 'none';
-
-                const overlay = item.querySelector('.service-overlay');
-                overlay.style.opacity = absOffset === 0 ? '0' : '0.6';
-            });
-
-            const dots = servicesDotsContainer.children;
-            for(let i=0; i<dots.length; i++) {
-                dots[i].className = `h-2 rounded-full transition-all duration-500 m-1 ${activeServiceIndex === i ? 'w-6 bg-[#D7A9A3]' : 'w-2 bg-[#D7A9A3]/30'}`;
-            }
-        }
-
-        function nextService() { activeServiceIndex = activeServiceIndex === serviceItems.length - 1 ? 0 : activeServiceIndex + 1; updateServicesCarousel(); resetServicesAutoplay(); }
-        function prevService() { activeServiceIndex = activeServiceIndex === 0 ? serviceItems.length - 1 : activeServiceIndex - 1; updateServicesCarousel(); resetServicesAutoplay(); }
-        function resetServicesAutoplay() { clearInterval(serviceAutoplayInterval); serviceAutoplayInterval = setInterval(nextService, 4000); }
-
-        updateServicesCarousel();
-        resetServicesAutoplay();
 
         // ==========================================
-        // CARROSSEL DE GALERIA (10 Itens Infinitos)
+        // 2. CARROSSEL DE AVALIAÇÕES DO GOOGLE (5 Itens)
         // ==========================================
-        const items = document.querySelectorAll('.carousel-item');
-        const dotsContainer = document.getElementById('carousel-dots');
-        let activeIndex = 2;
-        let autoplayInterval;
+        const reviewsData = [
+            { name: "Maria Silva", text: "Atendimento impecável! As unhas ficaram perfeitas e super naturais. O ambiente é muito acolhedor." },
+            { name: "Ana Paula", text: "Melhor nail designer de Osasco! A durabilidade do gel é incrível, não troco por nada. Super recomendo." },
+            { name: "Juliana Costa", text: "Profissional maravilhosa e super cuidadosa. Minhas unhas nunca estiveram tão lindas e saudáveis." },
+            { name: "Beatriz Mendes", text: "Fiz o alongamento e amei o resultado. O acabamento é super delicado. Ganhou uma cliente fiel!" },
+            { name: "Camila Rodrigues", text: "O espaço é lindo, limpo e o trabalho é de altíssima qualidade. Vale cada centavo do investimento." }
+        ];
 
-        items.forEach((_, idx) => {
+        const rContainer = document.getElementById('reviews-carousel-container');
+        const rDotsContainer = document.getElementById('reviews-dots');
+        let rIndex = 0;
+        let rInterval;
+
+        reviewsData.forEach((rev, i) => {
+            const item = document.createElement('div');
+            item.className = 'carousel-item-3d review-card p-8 border border-gray-100 flex flex-col justify-between';
+            item.innerHTML = `
+                <div>
+                    <div class="flex text-[#fbbc04] text-xl mb-4 gap-1 drop-shadow-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 font-serif italic text-lg leading-relaxed">"${rev.text}"</p>
+                </div>
+                <div class="flex items-center justify-between mt-6 border-t border-gray-100 pt-4">
+                    <div>
+                        <p class="font-bold text-[#2A2A2A] font-sans">${rev.name}</p>
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Avaliação do Google</p>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md">
+                        <i class="fa-brands fa-google text-xl text-[#4285F4]"></i>
+                    </div>
+                </div>
+                <div class="carousel-overlay bg-black/40 rounded-2xl"></div>
+            `;
+            rContainer.appendChild(item);
+
             const dot = document.createElement('button');
-            dot.className = `h-2 rounded-full transition-all duration-500 ${activeIndex === idx ? 'w-8 bg-[#D7A9A3]' : 'w-2 bg-white/30'}`;
-            dot.onclick = () => { activeIndex = idx; updateCarousel(); resetAutoplay(); };
-            dotsContainer.appendChild(dot);
+            dot.onclick = () => { rIndex = i; updateR(); resetR(); };
+            rDotsContainer.appendChild(dot);
+            
+            item.addEventListener('click', () => { if(rIndex !== i) { rIndex = i; updateR(); resetR(); } });
         });
 
-        function updateCarousel() {
-            const total = items.length;
-            items.forEach((item, index) => {
-                let offset = index - activeIndex;
-                if (offset < -Math.floor(total / 2)) offset += total;
-                if (offset > Math.floor(total / 2)) offset -= total;
+        const rItems = rContainer.querySelectorAll('.carousel-item-3d');
+        const updateR = () => update3DCarousel(rItems, rIndex, rDotsContainer, 'review');
+        const rNext = () => { rIndex = (rIndex + 1) % rItems.length; updateR(); resetR(); };
+        const rPrev = () => { rIndex = (rIndex - 1 + rItems.length) % rItems.length; updateR(); resetR(); };
+        const resetR = () => { clearInterval(rInterval); rInterval = setInterval(rNext, 4500); };
+        updateR(); resetR();
 
-                const absOffset = Math.abs(offset);
-                const x = offset * 65; 
-                const scale = 1 - absOffset * 0.15; 
-                
-                let opacity = 0;
-                if(absOffset === 0) opacity = 1;
-                else if(absOffset === 1) opacity = 0.6;
-                else if(absOffset === 2) opacity = 0.2;
-                
-                const zIndex = 10 - absOffset;
 
-                item.style.transform = `translateX(${x}%) scale(${scale})`;
-                item.style.zIndex = zIndex;
-                item.style.opacity = opacity;
-                item.style.pointerEvents = opacity === 0 ? 'none' : 'auto';
+        // ==========================================
+        // 3. CARROSSEL DA GALERIA (10 Itens)
+        // ==========================================
+        const gContainer = document.getElementById('gallery-carousel-container');
+        const gDotsContainer = document.getElementById('gallery-dots');
+        const gItems = gContainer.querySelectorAll('.carousel-item-3d');
+        let gIndex = 2; // Começa no meio visualmente
+        let gInterval;
 
-                const overlay = item.querySelector('.carousel-overlay');
-                overlay.style.opacity = absOffset === 0 ? '0' : '0.5';
-            });
+        gItems.forEach((item, i) => {
+            const dot = document.createElement('button');
+            dot.onclick = () => { gIndex = i; updateG(); resetG(); };
+            gDotsContainer.appendChild(dot);
+            
+            item.addEventListener('click', () => { if(gIndex !== i) { gIndex = i; updateG(); resetG(); } });
+        });
 
-            const dots = dotsContainer.children;
-            for(let i=0; i<dots.length; i++) {
-                dots[i].className = `h-2 rounded-full transition-all duration-500 ${activeIndex === i ? 'w-8 bg-[#D7A9A3]' : 'w-2 bg-white/30'}`;
-            }
-        }
+        const updateG = () => update3DCarousel(gItems, gIndex, gDotsContainer, 'gallery');
+        const gNext = () => { gIndex = (gIndex + 1) % gItems.length; updateG(); resetG(); };
+        const gPrev = () => { gIndex = (gIndex - 1 + gItems.length) % gItems.length; updateG(); resetG(); };
+        const resetG = () => { clearInterval(gInterval); gInterval = setInterval(gNext, 3500); };
+        updateG(); resetG();
 
-        function nextImage() { activeIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1; updateCarousel(); resetAutoplay(); }
-        function prevImage() { activeIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1; updateCarousel(); resetAutoplay(); }
-        function resetAutoplay() { clearInterval(autoplayInterval); autoplayInterval = setInterval(nextImage, 4000); }
 
-        updateCarousel();
-        resetAutoplay();
-
-        // Observer de Fade
+        // Intersection Observer para Fade In
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) {
@@ -496,6 +541,7 @@
                 }
             });
         }, { threshold: 0.1 });
+
         document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
     </script>
 </body>
