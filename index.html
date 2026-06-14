@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rebeca Martins - Nail Designer Premium em Osasco</title>
+    
+    <!-- SEO Otimizado para o Google -->
+    <title>Rebeca Martins - Alongamento em Gel e Nail Design em Osasco</title>
+    <meta name="description" content="Especialista em alongamento em gel, esmaltação e nail art em Osasco (Bairro Ayrosa). Agende seu horário com Rebeca Martins para unhas impecáveis e naturais!">
+    <meta name="keywords" content="alongamento em gel osasco, nail designer osasco, unhas em gel, esmaltação em gel, bairro ayrosa, rebeca martins, design de sobrancelha">
+    <meta name="author" content="Rebeca Martins">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -66,6 +71,7 @@
             inset: 0;
             background: black;
             transition: opacity 0.5s;
+            pointer-events: none;
         }
 
         /* Efeito Fade In para Scroll */
@@ -107,7 +113,7 @@
         <!-- CONTAINER DO VÍDEO DE FUNDO -->
         <div class="absolute inset-0 z-0 overflow-hidden bg-black">
             <!-- Película para garantir leitura do texto -->
-            <div class="absolute inset-0 bg-black/30 z-10"></div> 
+            <div class="absolute inset-0 bg-black/40 z-10"></div> 
             
             <!-- VÍDEO DESKTOP (PC) -->
             <video autoplay loop muted playsinline class="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover z-0">
@@ -121,21 +127,23 @@
         </div>
 
         <!-- TEXTOS FLUTUANTES (Branco e Rose Gold com Sombra) -->
-        <div class="relative z-20 max-w-5xl mx-auto px-6 text-center mt-32 md:mt-24 fade-in-up">
-            <h1 class="font-serif text-5xl md:text-7xl font-bold text-white mb-4" style="text-shadow: 2px 4px 8px rgba(0,0,0,0.8);">
-                Alongamento em Gel em Osasco<br>
-                <span class="text-[#D7A9A3] italic">Rebeca Martins</span> Nail Designer
+        <div class="relative z-20 max-w-5xl mx-auto px-6 text-center mt-36 md:mt-24 fade-in-up">
+            <h1 class="font-serif text-5xl md:text-7xl font-black text-white mb-2" style="text-shadow: 3px 5px 10px rgba(0,0,0,0.9);">
+                Alongamento em Gel <br/> em Osasco
+            </h1>
+            <h1 class="font-serif text-5xl md:text-7xl font-black text-[#D7A9A3] italic mb-6" style="text-shadow: 3px 5px 10px rgba(0,0,0,0.9);">
+                Rebeca Martins Nail Designer
             </h1>
             
-            <h2 class="font-sans text-xl md:text-2xl font-bold text-white mb-10 max-w-3xl mx-auto leading-relaxed" style="text-shadow: 1px 2px 6px rgba(0,0,0,0.8);">
+            <h2 class="font-sans text-xl md:text-2xl font-bold text-white mb-10 max-w-3xl mx-auto leading-relaxed" style="text-shadow: 2px 3px 8px rgba(0,0,0,0.9);">
                 Atendimento especializado em unhas em gel, nail art e esmaltação no bairro Ayrosa – Osasco/SP.
             </h2>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://wa.me/5511939346943?text=Ol%C3%A1%20Rebeca!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20fazer%20minhas%20unhas." target="_blank" class="bg-white text-[#2A2A2A] px-8 py-4 rounded-full font-bold hover:bg-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg">
+                <a href="https://wa.me/5511939346943?text=Ol%C3%A1%20Rebeca!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20fazer%20minhas%20unhas." target="_blank" class="bg-[#2A2A2A] text-white px-8 py-4 rounded-full font-bold hover:bg-black shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg border border-[#2A2A2A]">
                     Agendar Horário <i class="fa-brands fa-whatsapp text-xl text-[#25D366]"></i>
                 </a>
-                <a href="#servicos" class="bg-black/40 backdrop-blur-md border border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-[#2A2A2A] shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all flex items-center justify-center text-lg">
+                <a href="#servicos" class="bg-white/90 backdrop-blur-md text-[#2A2A2A] px-8 py-4 rounded-full font-bold hover:bg-white shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all flex items-center justify-center text-lg border border-white">
                     Conhecer Procedimentos
                 </a>
             </div>
@@ -182,8 +190,11 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 fade-in-up">
                 <span class="uppercase tracking-[0.2em] text-sm font-bold mb-4 block text-[#D7A9A3]">Procedimentos & Cuidados</span>
-                <h2 class="font-serif text-4xl md:text-5xl font-bold text-[#2A2A2A]">Serviços de Nail Design Premium</h2>
-                <div class="h-[1px] w-24 mx-auto mt-6 bg-[#D7A9A3]/50"></div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-[#2A2A2A]">Unhas em Gel e Design de Sobrancelhas em Osasco</h2>
+                <div class="h-[1px] w-24 mx-auto mt-6 mb-6 bg-[#D7A9A3]/50"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                    Alongamento em gel, esmaltação em gel, nail art e design de sobrancelhas com atendimento personalizado, produtos de qualidade e técnicas modernas para realçar sua beleza em Osasco.
+                </p>
             </div>
             
             <div class="relative h-[450px] md:h-[500px] w-full flex items-center justify-center mt-10" id="services-carousel-container">
@@ -196,36 +207,6 @@
                     <div class="flex gap-2 flex-wrap justify-center max-w-[200px]" id="services-dots"></div>
                     <button onclick="sNext()" class="w-12 h-12 flex items-center justify-center rounded-full border border-[#2A2A2A]/20 text-[#2A2A2A] hover:bg-[#D7A9A3] hover:text-white hover:border-[#D7A9A3] transition-all"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Avaliações do Google (Carrossel 3D) -->
-    <section id="avaliacoes" class="py-24 bg-white overflow-hidden relative">
-        <div class="absolute top-20 left-0 w-[400px] h-[400px] bg-[#F4E4E2] rounded-full blur-[80px] opacity-40"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-16 fade-in-up">
-                <span class="uppercase tracking-[0.2em] text-sm font-bold mb-4 block text-[#D7A9A3]">O que dizem sobre nós</span>
-                <h2 class="font-serif text-4xl md:text-5xl font-bold text-[#2A2A2A]">Avaliações do Google</h2>
-                <div class="h-[1px] w-24 mx-auto mt-6 bg-[#D7A9A3]/50"></div>
-            </div>
-            
-            <div class="relative h-[400px] w-full flex items-center justify-center mt-10" id="reviews-carousel-container">
-                <!-- Injetado via JS -->
-            </div>
-
-            <div class="flex flex-col items-center mt-12 gap-6">
-                <div class="flex items-center gap-8">
-                    <button onclick="rPrev()" class="w-12 h-12 flex items-center justify-center rounded-full border border-[#2A2A2A]/20 text-[#2A2A2A] hover:bg-[#D7A9A3] hover:text-white hover:border-[#D7A9A3] transition-all"><i class="fa-solid fa-chevron-left"></i></button>
-                    <div class="flex gap-2" id="reviews-dots"></div>
-                    <button onclick="rNext()" class="w-12 h-12 flex items-center justify-center rounded-full border border-[#2A2A2A]/20 text-[#2A2A2A] hover:bg-[#D7A9A3] hover:text-white hover:border-[#D7A9A3] transition-all"><i class="fa-solid fa-chevron-right"></i></button>
-                </div>
-                
-                <!-- Botão Oficial Google -->
-                <a href="https://www.google.com/search?q=Rebeca+Martins+Nail+Designer&rlz=1C1GCEA_pt-BRBR1203BR1203&oq=re&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIKCAEQLhixAxiABDIGCAIQRRg5MgYIAxBFGDsyBggEEEUYOzIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPNIBCDEyMjBqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8" target="_blank" class="mt-4 bg-white border-2 border-[#4285F4] text-[#4285F4] px-8 py-3 rounded-full font-bold hover:bg-[#4285F4] hover:text-white transition-all flex items-center justify-center gap-3 shadow-md">
-                    <i class="fa-brands fa-google text-xl"></i> Ver todas as avaliações no Google
-                </a>
             </div>
         </div>
     </section>
@@ -273,7 +254,10 @@
                     Elevando o padrão do nail design com técnicas avançadas e um ambiente pensado exclusivamente para o seu bem-estar.
                 </p>
                 <div class="flex gap-4">
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#D7A9A3] transition-all text-xl"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/rebecamartins.naildesigner/" target="_blank" class="flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 hover:bg-gradient-to-r hover:from-[#f09433] hover:via-[#e6683c] hover:to-[#bc1888] transition-all duration-300 group">
+                        <i class="fa-brands fa-instagram text-xl group-hover:text-white text-[#D7A9A3]"></i>
+                        <span class="font-sans font-medium text-sm text-gray-300 group-hover:text-white">@rebecamartins.naildesigner</span>
+                    </a>
                 </div>
             </div>
 
@@ -391,7 +375,7 @@
         }
 
         // ==========================================
-        // 1. CARROSSEL DE SERVIÇOS (14 Itens)
+        // 1. CARROSSEL DE SERVIÇOS
         // ==========================================
         const servicesData = [
             { title: "Alongamento em Gel", desc: "Extensão com máxima naturalidade e resistência." },
@@ -400,14 +384,13 @@
             { title: "Remoção de Gel", desc: "Retirada segura preservando a unha natural." },
             { title: "Esmaltação Simples", desc: "Aplicação tradicional de esmalte com alto brilho." },
             { title: "Esmaltação em Gel", desc: "Durabilidade e brilho intenso que não lasca." },
-            { title: "Esmaltação Cromada", desc: "Efeito espelhado e metálico super luxuoso." },
             { title: "Nail Art Simples", desc: "Traços finos, francesinhas e minimalismo." },
             { title: "Película / Adesivo", desc: "Aplicação impecável de películas decorativas." },
             { title: "Foil / Folha Metálica", desc: "Detalhes requintados em folhas metálicas." },
             { title: "Encapsulamento", desc: "Arte interna protegida pelo gel com efeito 3D." },
             { title: "Pedrarias e Strass", desc: "Joias e cristais para unhas glamourosas." },
             { title: "Manicure Tradicional", desc: "Cutilagem clássica e preparação perfeita." },
-            { title: "Manicure em Spa", desc: "Relaxamento, esfoliação e hidratação profunda." }
+            { title: "Design de Sobrancelha Egípcia", desc: "Alinhamento perfeito e remoção de pelos com a técnica de linha egípcia." }
         ];
 
         const sContainer = document.getElementById('services-carousel-container');
@@ -453,63 +436,8 @@
         const resetS = () => { clearInterval(sInterval); sInterval = setInterval(sNext, 4000); };
         updateS(); resetS();
 
-
         // ==========================================
-        // 2. CARROSSEL DE AVALIAÇÕES DO GOOGLE (5 Itens)
-        // ==========================================
-        const reviewsData = [
-            { name: "Maria Silva", text: "Atendimento impecável! As unhas ficaram perfeitas e super naturais. O ambiente é muito acolhedor." },
-            { name: "Ana Paula", text: "Melhor nail designer de Osasco! A durabilidade do gel é incrível, não troco por nada. Super recomendo." },
-            { name: "Juliana Costa", text: "Profissional maravilhosa e super cuidadosa. Minhas unhas nunca estiveram tão lindas e saudáveis." },
-            { name: "Beatriz Mendes", text: "Fiz o alongamento e amei o resultado. O acabamento é super delicado. Ganhou uma cliente fiel!" },
-            { name: "Camila Rodrigues", text: "O espaço é lindo, limpo e o trabalho é de altíssima qualidade. Vale cada centavo do investimento." }
-        ];
-
-        const rContainer = document.getElementById('reviews-carousel-container');
-        const rDotsContainer = document.getElementById('reviews-dots');
-        let rIndex = 0;
-        let rInterval;
-
-        reviewsData.forEach((rev, i) => {
-            const item = document.createElement('div');
-            item.className = 'carousel-item-3d review-card p-8 border border-gray-100 flex flex-col justify-between';
-            item.innerHTML = `
-                <div>
-                    <div class="flex text-[#fbbc04] text-xl mb-4 gap-1 drop-shadow-sm">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-700 font-serif italic text-lg leading-relaxed">"${rev.text}"</p>
-                </div>
-                <div class="flex items-center justify-between mt-6 border-t border-gray-100 pt-4">
-                    <div>
-                        <p class="font-bold text-[#2A2A2A] font-sans">${rev.name}</p>
-                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Avaliação do Google</p>
-                    </div>
-                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md">
-                        <i class="fa-brands fa-google text-xl text-[#4285F4]"></i>
-                    </div>
-                </div>
-                <div class="carousel-overlay bg-black/40 rounded-2xl"></div>
-            `;
-            rContainer.appendChild(item);
-
-            const dot = document.createElement('button');
-            dot.onclick = () => { rIndex = i; updateR(); resetR(); };
-            rDotsContainer.appendChild(dot);
-            
-            item.addEventListener('click', () => { if(rIndex !== i) { rIndex = i; updateR(); resetR(); } });
-        });
-
-        const rItems = rContainer.querySelectorAll('.carousel-item-3d');
-        const updateR = () => update3DCarousel(rItems, rIndex, rDotsContainer, 'review');
-        const rNext = () => { rIndex = (rIndex + 1) % rItems.length; updateR(); resetR(); };
-        const rPrev = () => { rIndex = (rIndex - 1 + rItems.length) % rItems.length; updateR(); resetR(); };
-        const resetR = () => { clearInterval(rInterval); rInterval = setInterval(rNext, 4500); };
-        updateR(); resetR();
-
-
-        // ==========================================
-        // 3. CARROSSEL DA GALERIA (10 Itens)
+        // 2. CARROSSEL DA GALERIA (10 Itens)
         // ==========================================
         const gContainer = document.getElementById('gallery-carousel-container');
         const gDotsContainer = document.getElementById('gallery-dots');
